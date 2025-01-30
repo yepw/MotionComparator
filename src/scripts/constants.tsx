@@ -12,7 +12,7 @@ export function DEBUG(): boolean { return _debug; }
 export function setDEBUG(debug: boolean) { _debug = debug }
 
 /// Maximum frames per second.
-export const MAX_FRAMERATE = 60;
+export const MAX_FRAMERATE = 5;
 
 /**
  * Used by the ThreeScene to never run two functions with the same role.

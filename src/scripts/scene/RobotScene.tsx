@@ -862,10 +862,16 @@ export class RobotScene extends ThreeScene {
 
         // Get the frame bounds for the base scene
 
-        const sampleRate = MAX_FRAMERATE / 2; // frames per second
+        // const sampleRate = MAX_FRAMERATE / 2; // frames per second
+        const sampleRate = 1;
         const startTime = robotSceneManager.startTime();
         const endTime = robotSceneManager.endTime();
         const maxSamples = Math.abs(endTime - startTime) * sampleRate;
+
+        console.log("startTime: ", startTime);
+        console.log("endTime: ", endTime);
+        console.log("maxSamples: ", maxSamples);
+        console.log("sampleRate: ", sampleRate);
 
         let times = RobotScene.frameRange(startTime, endTime, sampleRate, maxSamples);
 
@@ -1051,7 +1057,9 @@ export class RobotScene extends ThreeScene {
      * `this.timeWarp` when you want the default time warp.
      * @returns An array containing the specified range of values.
      */
-    static frameRange(startTime: number, endTime: number, sampleRate: number = MAX_FRAMERATE / 2, maxSamples: number = MAX_FRAMERATE * 10, timeWarp?: (baseTime: number) => number): number[] {
+    static frameRange(startTime: number, endTime: number, sampleRate: number = MAX_FRAMERATE / 2, maxSamples: number = MAX_FRAMERATE * 1000, timeWarp?: (baseTime: number) => number): number[] {
+        
+        console.log("in frameRange");
         if (timeWarp === undefined) {
             // define it as a "no time warp" function
             timeWarp = (baseTime: number) => baseTime;
@@ -1063,6 +1071,10 @@ export class RobotScene extends ThreeScene {
         let timeLen = Math.abs(endTime - startTime);
         let totalSamples = Math.min(Math.floor(sampleRate * timeLen), maxSamples);
         let step = Math.abs(timeLen / totalSamples);
+
+        console.log("timeLen: ", timeLen);
+        console.log("totalSamples: ", totalSamples);
+        console.log("step: ", step);
 
         let timeGen;
 
@@ -1485,6 +1497,7 @@ export class RobotScene extends ThreeScene {
             {
                 let newTimespan: number[] = [robotSceneManager.currStartTime(), robotSceneManager.currEndTime()];
                 // console.log(newTimespan);
+                console.log(" in innerNewTraces", points.length);
                 traces.push(new Trace(points, robot, robotPart, times, 
                     (density === undefined)? this._density: density, 
                     (axisSize === undefined)? this._axisSize: axisSize, 
@@ -1530,6 +1543,7 @@ export class RobotScene extends ThreeScene {
      */
     addChildTrace(robot:Robot, times: number[], robotPart?: undefined | RobotJoint | RobotLink): string[] {
         let traceIds: string[] = [];
+        console.log("in addChildTrace", times.length);
         for (const trace of RobotScene.newTraces(robot, times, robotPart)) {
 
             // update prevous trace if possible.

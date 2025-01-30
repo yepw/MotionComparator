@@ -998,7 +998,7 @@ export class AnimationTable {
                 // Autodetect
 
                 // checks if the total duration is over each threshold
-                let isMilli = totalTime > 1000;
+                let isMilli = totalTime > 10000;
                 let isMicro = totalTime > 1000000;
                 let isNano  = totalTime > 1000000000;
 

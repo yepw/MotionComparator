@@ -115,9 +115,9 @@ export class Trace {
         this._axisSize = axisSize;
 
         this._traceSize = traceSize;
-        console.log(traceSize);
         
         this._parentScene = new SubscriptableValue(undefined) as SubscriptableValue<RobotScene | undefined>;
+        console.log("constructor points length is " + points.length);
         this.update(points, robot, robotPart, times, traceType, rotations);
 
         let _this = new WeakRef(this); // weakref so that neither function holds onto this object.
@@ -397,6 +397,7 @@ export class Trace {
     }
 
     setTraceType(newTraceType: TRACETYPE) {
+        console.log("set trace type", newTraceType);
         this.update(this._points, this._parentRobot, this._robotPart, this.times(), newTraceType);
     }
 
@@ -412,6 +413,9 @@ export class Trace {
         if (points === undefined) {
             points = [];
         }
+
+        console.log("points length is " + points.length);
+
 
         // Need at least 2 points to trace through
         if (points.length === 0) { points.push(new T.Vector3(), new T.Vector3()); }
@@ -449,6 +453,11 @@ export class Trace {
                 if (dist === 0) { continue; }
                 const coneRadius = 0.005;
                 const coneHeight = dist;
+
+                // if (dist > 0.05) {
+                //     continue;
+                // }
+                
                 const coneMesh = new T.Mesh(
                     new T.ConeGeometry(coneRadius, coneHeight),
                     material
@@ -566,6 +575,7 @@ export class Trace {
      * @param newPoints The new points that this Trace should have.
      */
     setPoints(newPoints: T.Vector3[]) {
+        console.log("set points", newPoints.length);
         this.update(newPoints, this._parentRobot, this._robotPart, this.times(), this._trace_type);
     }
     

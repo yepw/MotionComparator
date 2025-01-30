@@ -29,12 +29,18 @@ let exampleRobotURLs = [
     {"robot_name": "sawyer", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/sawyer/urdf/sawyer_gripper.urdf"},
     {"robot_name": "fetch", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/fetch/urdf/fetch.urdf"},
     {"robot_name": "mico", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/kinova/urdf/mico.urdf"},
-    {"robot_name": "ur5", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/ur5/urdf/ur5_gripper.urdf"},
-    {"robot_name": "spot arm", "url" : "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/spot_arm/urdf/spot_arm.urdf"},
-    {"robot_name": "panda", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/panda/urdf/panda.urdf"},
+    // {"robot_name": "ur5", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/ur5/urdf/ur5_gripper.urdf"},
+    {'robot_name': "ur5", 'url': "http://127.0.0.1:5500/robots/ur5/urdf/ur5_sanding.urdf"},
+    {'robot_name': 'ur5wipe', 'url': "http://127.0.0.1:5500/robots/ur5/urdf/ur5_wipe.urdf"},
+    {'robot_name': "ur5brush", 'url': "http://127.0.0.1:5500/robots/ur5/urdf/ur5_brush.urdf"},
+    {"robot_name": "spotarm", "url" : "http://127.0.0.1:5500/robots/spot_arm/urdf/spot_arm.urdf"},
+    {"robot_name": "panda", "url": "http://127.0.0.1:5500/robots/panda/urdf/panda.urdf"},
     {"robot_name": "iiwa", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/robots/iiwa/urdf/iiwa.urdf"},
     {"robot_name": "bottle", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/objects/glass_bottle.glb"},
     {"robot_name": "table", "url": "https://raw.githubusercontent.com/uwgraphics/MotionComparator-Examples/main/objects/side_table.glb"},
+    {"robot_name": "toilet", "url": "http://127.0.0.1:5500/objects/toilet.glb"},
+    {"robot_name": "stairs", "url": "http://127.0.0.1:5500/objects/stairs.glb"},
+    {"robot_name": "wok", "url": "http://127.0.0.1:5500/objects/wok.glb"},
     {"robot_name": "end-effector targets", "url": "EETarget"}
 ]
 

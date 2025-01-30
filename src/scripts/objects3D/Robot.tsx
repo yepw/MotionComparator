@@ -861,6 +861,9 @@ export class Robot {
         });
         this._visible = visible;
 
+        this._robot.visible = visible;
+        console.log("Setting visibility of robot to " + visible);
+
         this.render();
     }
 

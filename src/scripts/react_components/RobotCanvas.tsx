@@ -149,7 +149,7 @@ export class RobotCanvas extends Component<robot_canvas_props, robot_canvas_stat
             let lightColor = 0xffffff;
             const directionalLight = new T.DirectionalLight(lightColor, robotScene.directionalLightIntensity());
             directionalLight.castShadow = true;
-            directionalLight.shadow.mapSize.setScalar(1024);
+            directionalLight.shadow.mapSize.setScalar(100024);
             directionalLight.position.set(5, 5, 30);
             directionalLight.shadow.bias = -0.0005
             directionalLight.lookAt(0, 0, 0);
@@ -160,13 +160,13 @@ export class RobotCanvas extends Component<robot_canvas_props, robot_canvas_stat
             robotScene.scene().add(ambientLight);
             robotScene.setAmbientLight(ambientLight);
 
-            // const ground = new T.Mesh(new T.PlaneBufferGeometry(), new T.ShadowMaterial({ opacity: 0.25 }));
-            const ground = new T.Mesh(new T.PlaneBufferGeometry(), new T.MeshStandardMaterial({ 
-                color: new T.Color(robotScene.groundPlaneColor()),
-                opacity: robotScene.groundPlaneOpacity(),
-                transparent : true,
-                depthWrite : true,
-            }));
+            const ground = new T.Mesh(new T.PlaneBufferGeometry(), new T.ShadowMaterial({ opacity: 0.25 }));
+            // const ground = new T.Mesh(new T.PlaneBufferGeometry(), new T.MeshStandardMaterial({ 
+            //     color: new T.Color(robotScene.groundPlaneColor()),
+            //     opacity: robotScene.groundPlaneOpacity(),
+            //     transparent : true,
+            //     depthWrite : true,
+            // }));
             ground.scale.setScalar(20);
             ground.position.z = -0.002;
             ground.receiveShadow = true;
@@ -177,7 +177,7 @@ export class RobotCanvas extends Component<robot_canvas_props, robot_canvas_stat
             grid.rotation.x = Math.PI / 2;
             grid.position.z = -0.001;
             grid.visible = robotScene.isGroundPlaneVisible();
-            robotScene.scene().add(grid);
+            // robotScene.scene().add(grid);
             robotScene.setGroundPlane(ground, grid);
         });
     }
